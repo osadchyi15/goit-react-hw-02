@@ -1,21 +1,38 @@
+import css from "./Options.module.css";
+
 const Options = ({ updateFeedback, resetState, totalFeedback }) => {
   return (
-    <>
-      <button type="button" onClick={() => updateFeedback("good")}>
+    <div className={css.options}>
+      <button
+        className={css.optionsBtn}
+        type="button"
+        onClick={() => updateFeedback("good")}
+      >
         Good
       </button>
-      <button type="button" onClick={() => updateFeedback("neutral")}>
+
+      <button
+        className={css.optionsBtn}
+        type="button"
+        onClick={() => updateFeedback("neutral")}
+      >
         Neutral
       </button>
-      <button type="button" onClick={() => updateFeedback("bad")}>
+
+      <button
+        className={css.optionsBtn}
+        type="button"
+        onClick={() => updateFeedback("bad")}
+      >
         Bad
       </button>
+
       {totalFeedback != 0 && (
-        <button type="button" onClick={resetState}>
+        <button className={css.optionsBtn} type="button" onClick={resetState}>
           Reset
         </button>
       )}
-    </>
+    </div>
   );
 };
 
