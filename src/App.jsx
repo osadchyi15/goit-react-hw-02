@@ -15,12 +15,6 @@ const App = () => {
     );
   });
 
-  //   {
-  //   good: 0,
-  //   neutral: 0,
-  //   bad: 0,
-  // });
-
   useEffect(() => {
     window.localStorage.setItem("feedbacks", JSON.stringify(feedbacks));
   }, [feedbacks]);
