@@ -5,11 +5,25 @@ import Description from "./components/Description/Description";
 import Notification from "./components/Notification/Notification";
 
 const App = () => {
-  const [feedbacks, setFeedbacks] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
+  const [feedbacks, setFeedbacks] = useState(() => {
+    return (
+      JSON.parse(window.localStorage.getItem("feedbacks")) ?? {
+        good: 0,
+        neutral: 0,
+        bad: 0,
+      }
+    );
   });
+
+  //   {
+  //   good: 0,
+  //   neutral: 0,
+  //   bad: 0,
+  // });
+
+  useEffect(() => {
+    window.localStorage.setItem("feedbacks", JSON.stringify(feedbacks));
+  }, [feedbacks]);
 
   const totalFeedback = feedbacks.good + feedbacks.neutral + feedbacks.bad;
 
